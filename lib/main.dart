@@ -37,10 +37,11 @@ class WidgetStatefull extends StatefulWidget {
 }
 
 class _WidgetStatefull extends State<WidgetStatefull> {
-  String _displaytext = "face";
-
   String _textHome = "Home page";
 
+  bool _outlinedAppBar = true;
+
+  IconData? _iconAppBar = Icons.favorite_outline;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,8 +50,8 @@ class _WidgetStatefull extends State<WidgetStatefull> {
         backgroundColor: Colors.pinkAccent,
         actions: <Widget>[
           IconButton(
-            icon: const Icon(Icons.favorite_border_outlined),
-            onPressed: onPressedIconButton,
+            icon: Icon(_iconAppBar),
+            onPressed: onPressedIconButtonAppBar,
           ),
         ],
       ),
@@ -85,7 +86,17 @@ class _WidgetStatefull extends State<WidgetStatefull> {
     );
   }
 
-  void onPressedIconButton() {}
+  void onPressedIconButtonAppBar() {
+    setState(() {
+      if (_outlinedAppBar) {
+        _outlinedAppBar = false;
+        _iconAppBar = Icons.favorite;
+      } else {
+        _outlinedAppBar = true;
+        _iconAppBar = Icons.favorite_border_outlined;
+      }
+    });
+  }
 
   void favoritePage() {}
 }
