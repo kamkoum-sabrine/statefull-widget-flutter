@@ -46,6 +46,26 @@ class _WidgetStatefull extends State<WidgetStatefull> {
   bool _outlinedActionButton = true;
 
   IconData? _iconActionButton = Icons.favorite_border_outlined;
+
+  var _selectedIndex = 0;
+
+  bool _homeSelected = false;
+
+  bool _settingsSelected = false;
+
+  bool _accountSelected = false;
+  static const List<Widget> _widgetOptions = <Widget>[
+    Text(
+      'Home Selected',
+    ),
+    Text(
+      'Settings Selected',
+    ),
+    Text(
+      'Acount Selected',
+    ),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -60,10 +80,7 @@ class _WidgetStatefull extends State<WidgetStatefull> {
         ],
       ),
       body: Center(
-        child: Text(
-          _textHome,
-          style: TextStyle(fontSize: 24, color: Colors.pink),
-        ),
+        child: _widgetOptions.elementAt(_selectedIndex),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: favoritePage,
@@ -81,12 +98,14 @@ class _WidgetStatefull extends State<WidgetStatefull> {
             label: 'Settings',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.account_circle_outlined),
+            icon: Icon(Icons.account_circle_rounded),
             label: 'Account',
           ),
         ],
+        currentIndex: _selectedIndex,
         selectedItemColor: Colors.pink[800],
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+        onTap: _onItemTapped,
+      ),
     );
   }
 
@@ -111,6 +130,12 @@ class _WidgetStatefull extends State<WidgetStatefull> {
         _outlinedActionButton = true;
         _iconActionButton = Icons.favorite_border_outlined;
       }
+    });
+  }
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
     });
   }
 }
