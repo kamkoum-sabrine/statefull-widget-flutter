@@ -64,6 +64,23 @@ class _WidgetStatefull extends State<WidgetStatefull> {
         onPressed: favoritePage,
         child: const Icon(Icons.favorite_border_outlined),
         backgroundColor: Colors.lightBlue,
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.settings),
+            label: 'Settings',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.account_circle_outlined),
+            label: 'Account',
+          ),
+        ],
+        selectedItemColor: Colors.pink[800],
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
