@@ -39,15 +39,14 @@ class WidgetStatefull extends StatefulWidget {
 class _WidgetStatefull extends State<WidgetStatefull> {
   String _displaytext = "face";
 
-  IconData? _icon = Icons.face_outlined;
-
-  bool face = true;
+  String _textHome = "Home page";
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('AppBar Demo'),
+        backgroundColor: Colors.pinkAccent,
         actions: <Widget>[
           IconButton(
             icon: const Icon(Icons.favorite_border_outlined),
@@ -55,10 +54,10 @@ class _WidgetStatefull extends State<WidgetStatefull> {
           ),
         ],
       ),
-      body: const Center(
+      body: Center(
         child: Text(
-          'This is the home page',
-          style: TextStyle(fontSize: 24),
+          _textHome,
+          style: TextStyle(fontSize: 24, color: Colors.pink),
         ),
       ),
     );
