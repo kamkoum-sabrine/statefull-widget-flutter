@@ -42,6 +42,10 @@ class _WidgetStatefull extends State<WidgetStatefull> {
   bool _outlinedAppBar = true;
 
   IconData? _iconAppBar = Icons.favorite_outline;
+
+  bool _outlinedActionButton = true;
+
+  IconData? _iconActionButton = Icons.favorite_border_outlined;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -63,7 +67,7 @@ class _WidgetStatefull extends State<WidgetStatefull> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: favoritePage,
-        child: const Icon(Icons.favorite_border_outlined),
+        child: Icon(_iconActionButton),
         backgroundColor: Colors.lightBlue,
       ),
       bottomNavigationBar: BottomNavigationBar(
@@ -98,5 +102,15 @@ class _WidgetStatefull extends State<WidgetStatefull> {
     });
   }
 
-  void favoritePage() {}
+  void favoritePage() {
+    setState(() {
+      if (_outlinedActionButton) {
+        _outlinedActionButton = false;
+        _iconActionButton = Icons.favorite;
+      } else {
+        _outlinedActionButton = true;
+        _iconActionButton = Icons.favorite_border_outlined;
+      }
+    });
+  }
 }
