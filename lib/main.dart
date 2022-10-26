@@ -60,8 +60,15 @@ class _WidgetStatefull extends State<WidgetStatefull> {
           style: TextStyle(fontSize: 24, color: Colors.pink),
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: favoritePage,
+        child: const Icon(Icons.favorite_border_outlined),
+        backgroundColor: Colors.lightBlue,
+      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 
   void onPressedIconButton() {}
+
+  void favoritePage() {}
 }
